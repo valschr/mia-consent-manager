@@ -22,7 +22,7 @@ export default {
   output: {
     sourcemap: true,
     format: !production ? 'iife' : 'es',
-    name: 'mia-consent-manager',
+    name: 'miaConsentManager',
     file: production ? 'module/index.js' : 'public/build/bundle.js',
   },
   plugins: [

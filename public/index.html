@@ -10,9 +10,34 @@
     <link rel="stylesheet" href="/global.css" />
     <link rel="stylesheet" href="/build/bundle.css" />
 
-    <script defer src="/build/bundle.js"></script>
+    <script onload="init()" defer src="/build/bundle.js"></script>
   </head>
 
   <body></body>
-  <script></script>
+  <script>
+    function init() {
+      miaConsentManager({
+        scripts: [
+          {
+            name: 'Google Analytics',
+            description:
+              'Allows us to analyze the statistics of visits to our site',
+            domain: 'google.com',
+            gtm: {
+              grantEvent: 'GOOGLE_ANALYTICS',
+            },
+          },
+          {
+            name: 'Linked-In',
+            description:
+              'Allows us to analyze the statistics of visits to our site',
+            domain: 'linkedin.com',
+            gtm: {
+              grantEvent: 'LINKED_IN',
+            },
+          },
+        ],
+      })
+    }
+  </script>
 </html>
