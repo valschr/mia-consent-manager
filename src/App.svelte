@@ -1,9 +1,10 @@
 <script>
   import Home from './Home.svelte'
   import Choose from './Choose.svelte'
+  import { handleGrantDone } from './grantHandler'
+  export let scripts
 
-  let viewState = 'CHOOSE'
-
+  let viewState = 'HOME'
   function changeView(event) {
     viewState = event.detail
   }
@@ -16,9 +17,9 @@
 <main>
   <div class="miconsent">
     {#if viewState === 'HOME'}
-      <Home on:changeView={changeView} />
+      <Home {scripts} on:done={handleGrantDone} on:changeView={changeView} />
     {:else if viewState === 'CHOOSE'}
-      <Choose on:changeView={changeView} />
+      <Choose {scripts} on:done={handleGrantDone} on:changeView={changeView} />
     {/if}
   </div>
 

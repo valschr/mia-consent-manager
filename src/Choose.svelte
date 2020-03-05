@@ -2,32 +2,34 @@
   import { createEventDispatcher } from 'svelte'
   const dispatch = createEventDispatcher()
 
-  const scripts = [
-    {
-      name: 'Google Analytics',
-      description: 'Allows us to analyze the statistics of visits to our site',
-      domain: 'google.com',
-      gtm: {
-        grantEvent: 'GOOGLE_ANALYTICS',
-      },
-    },
-    {
-      name: 'Facebook Pixel',
-      description: 'Allows us to analyze the statistics of visits to our site',
-      domain: 'facebook.com',
-      gtm: {
-        grantEvent: 'FACEBOOK_PIXEL',
-      },
-    },
-  ]
+  export let scripts
+
+  function onToogle(type, e) {
+    if (type === 'ALL') {
+      scripts.forEach(i => (i.granted = e.target.checked))
+    } else {
+      scripts.find(i => i.name === type).granted = e.target.checked
+    }
+
+    // trigger svelte update
+    scripts = scripts
+  }
+
+  function acceptAll() {
+    scripts.forEach(i => (i.granted = true))
+    dispatch('done', scripts)
+  }
 </script>
 
 <style type="text/scss">
   .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 52px;
+    max-width: 52px;
+    min-width: 52px;
     height: 20px;
+    margin-right: 8px;
   }
 
   /* Hide default HTML checkbox */
@@ -70,7 +72,7 @@
   }
 
   input:checked + .slider:before {
-    transform: translateX(30px);
+    transform: translateX(34px);
   }
 
   /* Rounded sliders */
@@ -86,18 +88,34 @@
 <main>
   <div class="miconsent__content">
     <span class="miconsent__headline">Hi there!</span>
-    <span class="miconsent__subline">Choose your cookies</span>
+    <span class="miconsent__info">
+      Choice is important! You are in control of all tools that we use to
+      enhance your user experience and help us to improve our product.
+    </span>
+    <div class="miconsent__accept_all">
+      Check All
+      <label on:change={e => onToogle('ALL', e)} class="switch large">
+        <input
+          checked={scripts.filter(i => !i.granted).length === 0}
+          type="checkbox" />
+        <span class="slider round" />
+      </label>
+    </div>
     <div class="miconsent__scriptlist">
       {#each scripts as script}
         <div class="miconsent__scriptlist_item">
           <img
+            class="miconsent__scriptlist_item_icon"
             src={'https://www.google.com/s2/favicons?domain=' + script.domain} />
           <div>
             <span>{script.name}</span>
             <small>{script.description}</small>
           </div>
           <label class="switch">
-            <input type="checkbox" />
+            <input
+              on:change={e => onToogle(script.name, e)}
+              checked={script.granted}
+              type="checkbox" />
             <span class="slider round" />
           </label>
         </div>
@@ -111,10 +129,10 @@
       <button>back</button>
     </div>
     <div class="miconsent__option">
-      <button>Accept All</button>
+      <button on:click={() => acceptAll()}>Accept All</button>
     </div>
     <div class="miconsent__option accept_all">
-      <button on:click={() => dispatch('changeView', 'CHOOSE')}>Done</button>
+      <button on:click={() => dispatch('done', scripts)}>Done</button>
     </div>
   </div>
 </main>

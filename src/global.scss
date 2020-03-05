@@ -35,6 +35,7 @@ body {
   }
   &__info {
     font-size: 12px;
+    margin-bottom: 10px;
     line-height: 1.5;
     color: $lightFont;
   }
@@ -85,9 +86,11 @@ body {
   &__scriptlist_item {
     display: flex;
     align-items: center;
-    img {
+    &_icon {
       width: 20px;
       height: 20px;
+      min-width: 20px;
+      min-height: 20px;
       margin-right: 10px;
     }
     span {
@@ -100,5 +103,10 @@ body {
     & > div {
       padding-right: 10px;
     }
+  }
+  &__accept_all {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
   }
 }

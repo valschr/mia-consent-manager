@@ -1,8 +1,14 @@
 <script>
   //   let changeView
   import { createEventDispatcher } from 'svelte'
+  export let scripts
 
   const dispatch = createEventDispatcher()
+
+  function acceptAll() {
+    scripts.forEach(i => (i.granted = true))
+    dispatch('done', scripts)
+  }
 </script>
 
 <style type="text/scss">
@@ -31,7 +37,7 @@
       </button>
     </div>
     <div class="miconsent__option accept_all">
-      <button>Ok</button>
+      <button on:click={() => acceptAll()}>Ok</button>
     </div>
   </div>
 </main>
