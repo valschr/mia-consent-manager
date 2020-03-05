@@ -4,7 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 import sveltePreprocess from 'svelte-preprocess'
-import buble from 'rollup-plugin-buble'
+import babel from 'rollup-plugin-babel'
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -21,9 +21,9 @@ export default {
   input: 'src/main.js',
   output: {
     sourcemap: true,
-    format: 'iife',
-    name: 'app',
-    file: 'public/build/bundle.js',
+    format: !production ? 'iife' : 'es',
+    name: 'mia-consent-manager',
+    file: production ? 'module/index.js' : 'public/build/bundle.js',
   },
   plugins: [
     svelte({
@@ -32,7 +32,7 @@ export default {
       // we'll extract any component CSS out into
       // a separate file - better for performance
       css: css => {
-        css.write('public/build/bundle.css')
+        css.write(production ? 'module/bundle.css' : 'public/build/bundle.css')
       },
       preprocess,
     }),
@@ -54,6 +54,29 @@ export default {
     // Watch the `public` directory and refresh the
     // browser on changes when not in production
     !production && livereload('public'),
+
+    babel({
+      extensions: ['.js', '.mjs', '.html', '.svelte'],
+      runtimeHelpers: true,
+      exclude: ['node_modules/@babel/**'],
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            targets: '> 0.25%, not dead',
+          },
+        ],
+      ],
+      plugins: [
+        '@babel/plugin-syntax-dynamic-import',
+        [
+          '@babel/plugin-transform-runtime',
+          {
+            useESModules: true,
+          },
+        ],
+      ],
+    }),
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify

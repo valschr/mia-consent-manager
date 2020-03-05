@@ -1,3 +1,11 @@
-import ConsentManger from './consentManager'
+// import 'core-js'
+import MiaConsentManager from './MiaConsentManager.svelte'
 
-export default ConsentManger()
+function init(props = { scripts: [] }) {
+  return new MiaConsentManager({
+    target: document.body,
+    props,
+  })
+}
+
+export default init

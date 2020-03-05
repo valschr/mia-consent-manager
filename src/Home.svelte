@@ -37,7 +37,7 @@
       </button>
     </div>
     <div class="miconsent__option accept_all">
-      <button on:click={() => acceptAll()}>Ok</button>
+      <button on:click={() => acceptAll()}>Accept All</button>
     </div>
   </div>
 </main>
