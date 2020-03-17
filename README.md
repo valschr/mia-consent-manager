@@ -14,10 +14,20 @@ The decision will be stored as a cookie and saved for 12 months before consent h
 import MiaConsentManager from "mia-consent-manager"
 
 MiaConsentManager({
-  title,
-  subtitle,
-  description,
-  highlightColor,
+  blocking: true,
+  homeText: {
+    title: 'Lorem ipsum!',
+    description:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+    subtitle: 'dolor sit amet',
+  },
+  chooseText: {
+    title: 'Lorem ipsum!',
+    description:
+      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+  },
+  highlightColor: '#fc6e20',
+  sliderColor: '#fe886c',
   scripts: [
     {
       name: "Google Analytics",
