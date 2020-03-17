@@ -1,7 +1,7 @@
 # Moodley Interactive Consent Manager
 
-This consent manager is meant to easy up compliance with the GDPR cookie regulations. Its an easy to install, lightweight NPM package that adds the consent decision to the GTM data layer. Therefore the scripts for which consent was given can be activated via GTM triggers.
-The decision will be stored as a cookie and saved for 12 months before consent has to given again. If new scripts are added only consent for these is asked from the user.
+This consent manager is meant to ease up compliance with the GDPR cookie regulations. Its an easy to install, lightweight NPM package that adds the consent decision to the GTM data layer. Therefore the scripts for which consent was given can be activated via GTM triggers.
+The decision will be stored as a cookie and saved for 12 months before consent has to be given again. If new scripts are added only consent for these is asked from the user.
 
 
 ## Installation
