@@ -5,7 +5,6 @@
 
   export let scripts
   export let title
-  export let subtitle
   export let description
   export let highlightColor
   export let sliderColor
@@ -109,6 +108,7 @@
       {#each scripts as script}
         <div class="miconsent__scriptlist_item">
           <img
+            alt="script icon"
             class="miconsent__scriptlist_item_icon"
             src={'https://www.google.com/s2/favicons?domain=' + script.domain} />
           <div>

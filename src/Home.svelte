@@ -7,7 +7,6 @@
   export let subtitle
   export let description
   export let highlightColor
-  export let sliderColor
 
   const dispatch = createEventDispatcher()
 

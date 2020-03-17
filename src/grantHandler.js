@@ -15,12 +15,16 @@ export const handleGrantDone = event => {
 
 export const getInitialState = scripts => {
   const currentState = getConsentCookie()
-  console.log('currentState', currentState)
   scripts.forEach(i => {
     const previouslyGranted = currentState.find(r => r.name === i.name)
     if (previouslyGranted) {
       i.granted = previouslyGranted.granted
       i.consent_answered = true
+      if (typeof dataLayer !== 'undefined') {
+        dataLayer.push({
+          event: `CM_GRANTED_${i.gtm ? i.gtm.grantEvent : i.name}`,
+        })
+      }
     }
   })
   return {

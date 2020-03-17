@@ -2,7 +2,7 @@
   "name": "mi-consent-manager",
   "version": "0.0.1",
   "scripts": {
-    "build": "rollup -c",
+    "build": "cp README.md module/README.md && rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public"
   },
