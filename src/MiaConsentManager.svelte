@@ -3,14 +3,12 @@
   import Choose from './Choose.svelte'
   import { handleGrantDone, getInitialState } from './grantHandler'
   export let scripts
-  export let title
-  export let subtitle
-  export let description
+  export let homeText
+  export let chooseText
   export let highlightColor = '#fc6e20'
   export let sliderColor = '#fe886c'
 
   const initialState = getInitialState(scripts)
-  console.log('initialState', initialState)
   let viewState = 'HOME'
   let closed = !initialState.showPromp
   function changeView(event) {
@@ -31,9 +29,7 @@
     <div class="miconsent">
       {#if viewState === 'HOME'}
         <Home
-          {title}
-          {subtitle}
-          {description}
+          {...homeText}
           {highlightColor}
           {sliderColor}
           {scripts}
@@ -41,9 +37,7 @@
           on:changeView={changeView} />
       {:else if viewState === 'CHOOSE'}
         <Choose
-          {title}
-          {subtitle}
-          {description}
+          {...chooseText}
           {highlightColor}
           {sliderColor}
           {scripts}

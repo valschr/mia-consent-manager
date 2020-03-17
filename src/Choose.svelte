@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte'
+  import translate from './translation'
   const dispatch = createEventDispatcher()
 
   export let scripts
@@ -93,13 +94,10 @@
 
 <main>
   <div class="miconsent__content">
-    <span class="miconsent__headline">Hi there!</span>
-    <span class="miconsent__info">
-      Choice is important! You are in control of all tools that we use to
-      enhance your user experience and help us to improve our product.
-    </span>
+    <span class="miconsent__headline">{title}</span>
+    <span class="miconsent__info">{description}</span>
     <div class="miconsent__accept_all">
-      Check All
+      {translate('CHECK_ALL')}
       <label on:change={e => onToogle('ALL', e)} class="switch large">
         <input checked={areAllChecked(scripts)} type="checkbox" />
         <span
@@ -134,16 +132,16 @@
     <div
       on:click={() => dispatch('changeView', 'HOME')}
       class="miconsent__option decline_all">
-      <button>back</button>
+      <button>{translate('BACK')}</button>
     </div>
     <div class="miconsent__option">
-      <button on:click={() => acceptAll()}>Accept All</button>
+      <button on:click={() => acceptAll()}>{translate('ACCEPT_ALL')}</button>
     </div>
     <div class="miconsent__option accept_all">
       <button
         style={`color: ${highlightColor}`}
         on:click={() => dispatch('done', scripts)}>
-        Done
+        {translate('DONE')}
       </button>
     </div>
   </div>

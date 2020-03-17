@@ -11,6 +11,18 @@ const translation = {
     en: 'Accept All',
     de: 'Alle akzeptieren',
   },
+  CHECK_ALL: {
+    en: 'Check All',
+    de: 'Alle wählen',
+  },
+  BACK: {
+    en: 'Back',
+    de: 'Zurück',
+  },
+  DONE: {
+    en: 'Done',
+    de: 'Fertig',
+  },
 }
 
 export default key => {

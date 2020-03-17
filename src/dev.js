@@ -5,10 +5,17 @@ function init(props = { scripts: [] }) {
   return new MiaConsentManager({
     target: document.body,
     props: {
-      title: 'Hi there!',
-      description:
-        'Choice is important! You are in control of all tools that we use to enhance your user experience and help us to improve our product.',
-      subtitle: 'We`re the cookies',
+      homeText: {
+        title: 'Lorem ipsum!',
+        description:
+          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+        subtitle: 'dolor sit amet',
+      },
+      chooseText: {
+        title: 'Lorem ipsum!',
+        description:
+          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+      },
       scripts: [
         {
           name: 'Google Analytics',
