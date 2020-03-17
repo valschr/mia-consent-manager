@@ -1,6 +1,6 @@
 {
   "name": "mia-consent-manager",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "moodley interactive cookie consent manager",
   "main": "index.js",
   "scripts": {
