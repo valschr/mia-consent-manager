@@ -5,6 +5,7 @@ function init(props = { scripts: [] }) {
   return new MiaConsentManager({
     target: document.body,
     props: {
+      blocking: true,
       homeText: {
         title: 'Lorem ipsum!',
         description:

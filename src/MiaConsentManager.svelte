@@ -5,6 +5,7 @@
   export let scripts
   export let homeText
   export let chooseText
+  export let blocking
   export let highlightColor = '#fc6e20'
   export let sliderColor = '#fe886c'
 
@@ -18,6 +19,9 @@
     handleGrantDone(e)
     closed = true
   }
+  function handleClose() {
+    closed = true
+  }
 </script>
 
 <style type="text/scss" global>
@@ -26,24 +30,27 @@
 
 <main>
   {#if !closed}
-    <div class="miconsent">
-      {#if viewState === 'HOME'}
-        <Home
-          {...homeText}
-          {highlightColor}
-          {sliderColor}
-          {scripts}
-          on:done={handleGrantDone}
-          on:changeView={changeView} />
-      {:else if viewState === 'CHOOSE'}
-        <Choose
-          {...chooseText}
-          {highlightColor}
-          {sliderColor}
-          {scripts}
-          on:done={handleDone}
-          on:changeView={changeView} />
-      {/if}
+    <div class="miconsent {blocking ? 'blocking' : ''}">
+      <div class="miconsent__container">
+        {#if viewState === 'HOME'}
+          <Home
+            {...homeText}
+            {highlightColor}
+            {sliderColor}
+            {scripts}
+            on:done={handleGrantDone}
+            on:close={handleClose}
+            on:changeView={changeView} />
+        {:else if viewState === 'CHOOSE'}
+          <Choose
+            {...chooseText}
+            {highlightColor}
+            {sliderColor}
+            {scripts}
+            on:done={handleDone}
+            on:changeView={changeView} />
+        {/if}
+      </div>
     </div>
   {/if}
 </main>
