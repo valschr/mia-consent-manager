@@ -1,7 +1,13 @@
 <script>
   //   let changeView
   import { createEventDispatcher } from 'svelte'
+  import translate from './translation'
   export let scripts
+  export let title
+  export let subtitle
+  export let description
+  export let highlightColor
+  export let sliderColor
 
   const dispatch = createEventDispatcher()
 
@@ -17,27 +23,23 @@
 
 <main>
   <div class="miconsent__content">
-    <span class="miconsent__headline">Hi there!</span>
-    <span class="miconsent__subline">We're the cookies</span>
-    <p class="miconsent__info">
-      We waited to make sure that you were interested in the content of this
-      website before bothering you, but we would love to be your companions
-      during your visit...
-      <br />
-      Is that OK with you?
-    </p>
+    <span class="miconsent__headline">{title}</span>
+    <span class="miconsent__subline">{subtitle}</span>
+    <p class="miconsent__info">{description}</p>
   </div>
   <div class="miconsent__options">
     <div class="miconsent__option decline_all">
-      <button>No thanks</button>
+      <button>{translate('NO_THANKS')}</button>
     </div>
     <div class="miconsent__option">
       <button on:click={() => dispatch('changeView', 'CHOOSE')}>
-        I want to choose
+        {translate('I_WANT_TO_CHOOSE')}
       </button>
     </div>
     <div class="miconsent__option accept_all">
-      <button on:click={() => acceptAll()}>Accept All</button>
+      <button style={`color: ${highlightColor}`} on:click={() => acceptAll()}>
+        {translate('ACCEPT_ALL')}
+      </button>
     </div>
   </div>
 </main>

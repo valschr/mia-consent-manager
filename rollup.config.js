@@ -18,7 +18,7 @@ const preprocess = sveltePreprocess({
 })
 
 export default {
-  input: 'src/main.js',
+  input: production ? 'src/main.js' : 'src/dev.js',
   output: {
     sourcemap: true,
     format: !production ? 'iife' : 'es',

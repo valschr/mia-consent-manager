@@ -1,0 +1,20 @@
+const translation = {
+  NO_THANKS: {
+    en: 'No thanks',
+    de: 'Nein danke',
+  },
+  I_WANT_TO_CHOOSE: {
+    en: 'I want to choose',
+    de: 'Ich möchte wählen',
+  },
+  ACCEPT_ALL: {
+    en: 'Accept All',
+    de: 'Alle akzeptieren',
+  },
+}
+
+export default key => {
+  const lang = window.navigator.userLanguage || window.navigator.language
+  if (!translation[key]) return ''
+  return translation[key][lang] || translation[key]['en']
+}

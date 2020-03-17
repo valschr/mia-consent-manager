@@ -3,6 +3,11 @@
   const dispatch = createEventDispatcher()
 
   export let scripts
+  export let title
+  export let subtitle
+  export let description
+  export let highlightColor
+  export let sliderColor
 
   function onToogle(type, e) {
     if (type === 'ALL') {
@@ -19,6 +24,7 @@
     scripts.forEach(i => (i.granted = true))
     dispatch('done', scripts)
   }
+  const areAllChecked = s => s.filter(i => !i.granted).length === 0
 </script>
 
 <style type="text/scss">
@@ -63,13 +69,13 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 12px;
   }
 
-  input:checked + .slider {
-    background-color: #ffc823;
-  }
+  // input:checked + .slider {
+  //   background-color: #ffc823;
+  // }
 
-  input:focus + .slider {
-    box-shadow: 0 0 1px #ffc823;
-  }
+  // input:focus + .slider {
+  //   box-shadow: 0 0 1px #ffc823;
+  // }
 
   input:checked + .slider:before {
     transform: translateX(34px);
@@ -95,10 +101,10 @@
     <div class="miconsent__accept_all">
       Check All
       <label on:change={e => onToogle('ALL', e)} class="switch large">
-        <input
-          checked={scripts.filter(i => !i.granted).length === 0}
-          type="checkbox" />
-        <span class="slider round" />
+        <input checked={areAllChecked(scripts)} type="checkbox" />
+        <span
+          style={areAllChecked(scripts) ? `background-color: ${sliderColor}; box-shadow: 0 0 1px ${sliderColor};` : ''}
+          class="slider round" />
       </label>
     </div>
     <div class="miconsent__scriptlist">
@@ -116,7 +122,9 @@
               on:change={e => onToogle(script.name, e)}
               checked={script.granted}
               type="checkbox" />
-            <span class="slider round" />
+            <span
+              style={script.granted ? `background-color: ${sliderColor}; box-shadow: 0 0 1px ${sliderColor};` : ''}
+              class="slider round" />
           </label>
         </div>
       {/each}
@@ -132,7 +140,11 @@
       <button on:click={() => acceptAll()}>Accept All</button>
     </div>
     <div class="miconsent__option accept_all">
-      <button on:click={() => dispatch('done', scripts)}>Done</button>
+      <button
+        style={`color: ${highlightColor}`}
+        on:click={() => dispatch('done', scripts)}>
+        Done
+      </button>
     </div>
   </div>
 </main>
