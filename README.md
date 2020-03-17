@@ -14,9 +14,10 @@ The decision will be stored as a cookie and saved for 12 months before consent h
 
 ```javascript
 import MiaConsentManager from 'mia-consent-manager'
+import "mia-consent-manager/bundle.css"
 
 MiaConsentManager({
-  blocking: true,
+  blocking: true, // if true the consent modal will cover the entire screen, if false it will be in the left bottom corner
   homeText: {
     title: 'Lorem ipsum!',
     description:
@@ -51,5 +52,5 @@ MiaConsentManager({
 })
 ```
 
-The "grantEvent" will be prefixed by "CM*GRANTED*" resulting in events like "CM_GRANTED_GOOGLE_ANALYTICS", "CM_GRANTED_LINKED_IN".
+The "grantEvent" will be prefixed by "CM_GRANTED*" resulting in events like "CM_GRANTED_GOOGLE_ANALYTICS", "CM_GRANTED_LINKED_IN".
 These are then meant to be used within the GTM to trigger the scripts.
