@@ -2,7 +2,6 @@
 export const setConsentCookie = scripts => {
   const expires = new Date()
   expires.setTime(expires.getTime() + 365 * 24 * 60 * 60 * 1000)
-  console.log('setConsentCookie')
   document.cookie =
     'mia_consent_manager=' +
     JSON.stringify(scripts) +

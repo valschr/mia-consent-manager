@@ -16,8 +16,8 @@
     viewState = event.detail
   }
   function handleDone(e) {
-    handleGrantDone(e)
     closed = true
+    handleGrantDone(e)
   }
   function handleClose() {
     closed = true
@@ -38,7 +38,7 @@
             {highlightColor}
             {sliderColor}
             {scripts}
-            on:done={handleGrantDone}
+            on:done={handleDone}
             on:close={handleClose}
             on:changeView={changeView} />
         {:else if viewState === 'CHOOSE'}
