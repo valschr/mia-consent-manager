@@ -56,3 +56,19 @@ MiaConsentManager({
 
 The "grantEvent" will be prefixed by "CM_GRANTED\*" resulting in events like "CM_GRANTED_GOOGLE_ANALYTICS", "CM_GRANTED_LINKED_IN".
 These are then meant to be used within the GTM to trigger the scripts.
+
+### Browser Support 
+
+According to this specification:  
+http://browsersupport.moodley-interactive.com/
+
+### CSS Styling
+
+Styling follows the BEM syntax; every class is prefixed with miconsent and existing styles can easily be overwritten by using:
+```css
+  .miconsent .miconsent__[element] 
+```
+
+### Possible Design Adjustment
+
+Highlight and slider colors can be changed using the JS settings. All other styling can be adjusted using CSS overwrites. 

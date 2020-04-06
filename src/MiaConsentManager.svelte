@@ -16,10 +16,18 @@
     viewState = event.detail
   }
   function handleDone(e) {
-    closed = true
     handleGrantDone(e)
+    closed = true
   }
   function handleClose() {
+    const declined = scripts.map(i => ({
+      ...i,
+      granted: false,
+    }))
+    console.log('declined', declined)
+    handleGrantDone({
+      detail: declined,
+    })
     closed = true
   }
 </script>

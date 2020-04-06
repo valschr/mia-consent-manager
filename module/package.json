@@ -1,6 +1,6 @@
 {
   "name": "mia-consent-manager",
-  "version": "0.9.5",
+  "version": "0.9.8",
   "description": "moodley interactive cookie consent manager",
   "main": "index.js",
   "scripts": {
@@ -10,5 +10,9 @@
     "gdpr"
   ],
   "author": "Valentin Schreibmaier",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valschr/mia-consent-manager"
+  }
 }
