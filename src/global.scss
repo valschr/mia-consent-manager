@@ -28,8 +28,8 @@ body {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 24px,
       rgba(0, 0, 0, 0.05) 0px 2px 6px;
     background-color: white;
-    border-radius: 18px;
-    width: 400px;
+    // border-radius: 18px;
+    width: 540px;
     max-width: 80vw;
     z-index: 9999;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -43,37 +43,47 @@ body {
 
   // consent manager
   &__content {
-    padding: 15px;
+    padding: 35px;
+    padding-bottom: 26px;
   }
   &__headline {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 29px;
+    margin-bottom: 17px;
+    font-weight: 300;
   }
   &__subline {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 19px;
+    margin-bottom: 20px;
+    font-weight: 300;
   }
   &__info {
     font-size: 12px;
-    margin-bottom: 10px;
+    margin-bottom: 26px;
     line-height: 1.5;
     color: $lightFont;
   }
   &__options {
     display: flex;
+    padding: 35px;
+    padding-top: 0px;
+    @media (max-width: 540px) {
+      flex-direction: column;
+      & > div {
+        margin-bottom: 10px;
+      }
+    }
   }
   &__option {
     display: flex;
-    width: 100%;
     text-align: center;
-    border-top: 0.5px solid $lightBorder;
-    border-right: 0.5px solid $lightBorder;
-    &:last-child {
-      border-right: none;
+    margin-right: 10px;
+    width: 100%;
+    &:last-of-type {
+      margin-right: 0px;
     }
     button {
+      border: 1px solid rgba(0, 0, 0, 0.2);
       background: transparent;
-      border: none;
       text-shadow: none;
       outline: none;
       cursor: pointer;
@@ -83,9 +93,14 @@ body {
       font-size: 14px;
       color: $lightFont;
       margin: 0;
+      white-space: nowrap;
     }
-    &.accept_all button {
-      color: $hightlightcolor;
+    &.accept_all {
+      border-color: transparent;
+      button {
+        border: none;
+        color: white;
+      }
     }
   }
   &__scriptlist {
@@ -125,12 +140,18 @@ body {
     }
     & > div {
       padding-right: 10px;
+      width: 100%;
     }
   }
   &__accept_all {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
+    font-size: 14px;
+    padding: 5px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border: 1px solid $lightBorder;
   }
   .switch {
     position: relative;

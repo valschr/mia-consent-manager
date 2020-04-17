@@ -79,7 +79,7 @@
     </div>
     <div class="miconsent__option accept_all">
       <button
-        style={`color: ${highlightColor}`}
+        style={`background-color: ${highlightColor}`}
         on:click={() => dispatch('done', scripts)}>
         {translate('DONE')}
       </button>

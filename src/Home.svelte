@@ -25,6 +25,9 @@
     <span class="miconsent__headline">{title}</span>
     <span class="miconsent__subline">{subtitle}</span>
     <p class="miconsent__info">{description}</p>
+    <!-- <div>
+      <a href="{{ imprintURL }}">{translate('ACCEPT_ALL')}</a>
+    </div> -->
   </div>
   <div class="miconsent__options">
     <div class="miconsent__option decline_all">
@@ -38,7 +41,9 @@
       </button>
     </div>
     <div class="miconsent__option accept_all">
-      <button style={`color: ${highlightColor}`} on:click={() => acceptAll()}>
+      <button
+        style={`background-color: ${highlightColor}`}
+        on:click={() => acceptAll()}>
         {translate('ACCEPT_ALL')}
       </button>
     </div>

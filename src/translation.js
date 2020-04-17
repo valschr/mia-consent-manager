@@ -23,9 +23,17 @@ const translation = {
     en: 'Done',
     de: 'Fertig',
   },
+  IMPRINT: {
+    en: 'Imprint',
+    de: 'Impressum',
+  },
+  PRIVACY_POLICY: {
+    en: 'Privacy Policy',
+    de: 'Datenschutzerklärung',
+  },
 }
 
-export default key => {
+export default (key) => {
   const lang = window.navigator.userLanguage || window.navigator.language
   if (!translation[key]) return ''
   return translation[key][lang] || translation[key]['en']
