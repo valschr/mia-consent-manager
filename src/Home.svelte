@@ -7,7 +7,8 @@
   export let subtitle
   export let description
   export let highlightColor
-
+  export let imprintLink = ''
+  export let privacyLink = ''
   const dispatch = createEventDispatcher()
 
   function acceptAll() {
@@ -25,9 +26,14 @@
     <span class="miconsent__headline">{title}</span>
     <span class="miconsent__subline">{subtitle}</span>
     <p class="miconsent__info">{description}</p>
-    <!-- <div>
-      <a href="{{ imprintURL }}">{translate('ACCEPT_ALL')}</a>
-    </div> -->
+    <div class="miconsent__moreinfo">
+      {#if !!imprintLink}
+        <a href={imprintLink}>{translate('IMPRINT')}</a>
+      {/if}
+      {#if !!privacyLink}
+        <a href={privacyLink}>{translate('PRIVACY_POLICY')}</a>
+      {/if}
+    </div>
   </div>
   <div class="miconsent__options">
     <div class="miconsent__option decline_all">

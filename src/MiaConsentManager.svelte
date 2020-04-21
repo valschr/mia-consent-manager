@@ -8,10 +8,25 @@
   export let blocking
   export let highlightColor = '#fc6e20'
   export let sliderColor = '#fe886c'
+  export let imprintLink
+  export let privacyLink
 
   const initialState = getInitialState(scripts)
   let viewState = 'HOME'
   let closed = !initialState.showPromp
+
+  function showBlocking(blockingSetting) {
+    const href = window.location.pathname
+    if (!blockingSetting) return false
+    if (imprintLink && imprintLink.length > 1 && href.indexOf(imprintLink) > -1)
+      return false
+    if (privacyLink && privacyLink.length > 1 && href.indexOf(privacyLink) > -1)
+      return false
+    return true
+  }
+
+  let showBlockingFlag = showBlocking(blocking)
+
   function changeView(event) {
     viewState = event.detail
   }
@@ -38,13 +53,15 @@
 
 <main>
   {#if !closed}
-    <div class="miconsent {blocking ? 'blocking' : ''}">
+    <div class="miconsent {showBlockingFlag ? 'blocking' : ''}">
       <div class="miconsent__container">
         {#if viewState === 'HOME'}
           <Home
             {...homeText}
             {highlightColor}
             {sliderColor}
+            {imprintLink}
+            {privacyLink}
             {scripts}
             on:done={handleDone}
             on:close={handleClose}

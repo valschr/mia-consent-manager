@@ -17,6 +17,8 @@ function init(props = { scripts: [] }) {
         description:
           'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
       },
+      privacyLink: '/privacy',
+      imprintLink: '/imprint',
       scripts: [
         {
           name: 'Google Analytics',

@@ -1,5 +1,5 @@
 // save the response of the user as a cookie
-export const setConsentCookie = scripts => {
+export const setConsentCookie = (scripts) => {
   const expires = new Date()
   expires.setTime(expires.getTime() + 365 * 24 * 60 * 60 * 1000)
   document.cookie =
@@ -25,4 +25,10 @@ export const getConsentCookie = () => {
     }
   }
   return []
+}
+
+export const setBinaryConsentCookie = (name, value) => {
+  const expires = new Date()
+  expires.setTime(expires.getTime() + 365 * 24 * 60 * 60 * 1000)
+  document.cookie = `CM_${name}=${!!value};${expires.toUTCString()};path=/`
 }
