@@ -38,6 +38,141 @@ function init(props = { scripts: [] }) {
             grantEvent: 'LINKED_IN',
           },
         },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
+        {
+          name: 'Linked-In',
+          description:
+            'Allows us to analyze the statistics of visits to our site',
+          domain: 'linkedin.com',
+          gtm: {
+            grantEvent: 'LINKED_IN',
+          },
+        },
       ],
     },
   })

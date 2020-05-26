@@ -24,7 +24,9 @@
 <main>
   <div class="miconsent__content">
     <span class="miconsent__headline">{title}</span>
-    <span class="miconsent__subline">{subtitle}</span>
+    {#if !!subtitle}
+      <span class="miconsent__subline">{subtitle}</span>
+    {/if}
     <p class="miconsent__info">{description}</p>
     <div class="miconsent__moreinfo">
       {#if !!imprintLink}
