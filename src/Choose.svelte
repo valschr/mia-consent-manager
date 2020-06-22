@@ -2,12 +2,13 @@
   import { createEventDispatcher } from 'svelte'
   import t from './translation'
   const dispatch = createEventDispatcher()
-  const translate = (key) => t(key, language)
+  export let language
   export let scripts
   export let title
   export let description
   export let highlightColor
   export let sliderColor
+  const translate = (key) => t(key, language)
 
   function onToogle(type, e) {
     if (type === 'ALL') {
