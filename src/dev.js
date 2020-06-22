@@ -19,6 +19,7 @@ function init(props = { scripts: [] }) {
       },
       privacyLink: '/privacy',
       imprintLink: '/imprint',
+      language: 'en', // de, en are available
       scripts: [
         {
           name: 'Google Analytics',

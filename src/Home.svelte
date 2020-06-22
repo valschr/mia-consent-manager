@@ -1,7 +1,8 @@
 <script>
   //   let changeView
   import { createEventDispatcher } from 'svelte'
-  import translate from './translation'
+  import t from './translation'
+  export let language
   export let scripts
   export let title
   export let subtitle
@@ -9,6 +10,7 @@
   export let highlightColor
   export let imprintLink = ''
   export let privacyLink = ''
+  const translate = (key) => t(key, language)
   const dispatch = createEventDispatcher()
 
   function acceptAll() {

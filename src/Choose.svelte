@@ -1,8 +1,8 @@
 <script>
   import { createEventDispatcher } from 'svelte'
-  import translate from './translation'
+  import t from './translation'
   const dispatch = createEventDispatcher()
-
+  const translate = (key) => t(key, language)
   export let scripts
   export let title
   export let description

@@ -33,8 +33,8 @@ const translation = {
   },
 }
 
-export default (key) => {
-  const lang = window.navigator.userLanguage || window.navigator.language
+export default (key, language) => {
+  const lang = language || window.navigator.userLanguage || window.navigator.language
   if (!translation[key]) return ''
   return translation[key][lang] || translation[key]['en']
 }

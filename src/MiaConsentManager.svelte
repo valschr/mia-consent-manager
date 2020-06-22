@@ -3,6 +3,7 @@
   import Choose from './Choose.svelte'
   import { handleGrantDone, getInitialState } from './grantHandler'
   export let scripts
+  export let language
   export let homeText
   export let chooseText
   export let blocking
@@ -62,6 +63,7 @@
             {sliderColor}
             {imprintLink}
             {privacyLink}
+            {language}
             {scripts}
             on:done={handleDone}
             on:close={handleClose}
@@ -70,6 +72,7 @@
           <Choose
             {...chooseText}
             {highlightColor}
+            {language}
             {sliderColor}
             {scripts}
             on:done={handleDone}

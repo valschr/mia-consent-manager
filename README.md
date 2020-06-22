@@ -35,6 +35,7 @@ MiaConsentManager({
   sliderColor: '#fe886c',
   privacyLink: '/privacy',
   imprintLink: '/imprint',
+  language: 'en', // de, en are available
   scripts: [
     {
       name: 'Google Analytics',
