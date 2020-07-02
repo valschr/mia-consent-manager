@@ -1,7 +1,7 @@
 const translation = {
   NO_THANKS: {
-    en: 'No thanks',
-    de: 'Nein danke',
+    en: 'Decline All',
+    de: 'All ablehnen',
   },
   I_WANT_TO_CHOOSE: {
     en: 'I want to choose',
@@ -23,6 +23,10 @@ const translation = {
     en: 'Done',
     de: 'Fertig',
   },
+  SAVE: {
+    en: 'Save',
+    de: 'Speichern',
+  },
   IMPRINT: {
     en: 'Imprint',
     de: 'Impressum',
@@ -30,6 +34,14 @@ const translation = {
   PRIVACY_POLICY: {
     en: 'Privacy Policy',
     de: 'Datenschutzerklärung',
+  },
+  MORE_INFO: {
+    en: 'show more',
+    de: 'mehr Informationen',
+  },
+  LESS_INFO: {
+    en: 'show less',
+    de: 'weniger Informationen',
   },
 }
 

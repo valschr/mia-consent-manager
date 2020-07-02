@@ -44,6 +44,16 @@ MiaConsentManager({
       gtm: {
         grantEvent: 'GOOGLE_ANALYTICS',
       },
+      info: [{
+        label: 'Name',
+        description: 'Google Analytics'
+      }, {
+        label: 'Provider',
+        description: 'Google LLC'
+      },{
+        label: 'Domain',
+        description: '<a href="https://google.at">google.at</a>'
+      }]
     },
     {
       name: 'Linked-In',

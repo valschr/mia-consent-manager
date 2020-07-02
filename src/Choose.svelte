@@ -8,7 +8,8 @@
   export let description
   export let highlightColor
   export let sliderColor
-  const translate = (key) => t(key, language)
+  let openIndex = null
+  const translate = key => t(key, language)
 
   function onToogle(type, e) {
     if (type === 'ALL') {
@@ -26,6 +27,13 @@
     dispatch('done', scripts)
   }
   const areAllChecked = s => s.filter(i => !i.granted).length === 0
+
+  function showMore(index) {
+    if (openIndex === index){
+      return openIndex = null
+    } 
+    openIndex = index
+  }
 </script>
 
 <style type="text/scss">
@@ -46,25 +54,38 @@
       </label>
     </div>
     <div class="miconsent__scriptlist">
-      {#each scripts as script}
+      {#each scripts as script, i}
         <div class="miconsent__scriptlist_item">
-          <img
-            alt="script icon"
-            class="miconsent__scriptlist_item_icon"
-            src={'https://www.google.com/s2/favicons?domain=' + script.domain} />
-          <div>
-            <span>{script.name}</span>
-            <small>{script.description}</small>
+          <div class="miconsent__scriptlist_general" >
+            <img
+              alt="script icon"
+              class="miconsent__scriptlist_item_icon"
+              src={'https://www.google.com/s2/favicons?domain=' + script.domain} />
+            <div>
+              <span>{script.name}</span>
+              <small>{script.description}</small>
+              { #if script.info && script.info.length > 0 }
+              <small on:click={() => showMore(i)} class="link" >{ openIndex !== i ? translate('MORE_INFO') : translate('LESS_INFO')}</small>
+              { /if }
+            </div>
+            <label class="switch">
+              <input
+                on:change={e => onToogle(script.name, e)}
+                checked={script.granted}
+                type="checkbox" />
+              <span
+                style={script.granted ? `background-color: ${sliderColor}; box-shadow: 0 0 1px ${sliderColor};` : ''}
+                class="slider round" />
+            </label>
           </div>
-          <label class="switch">
-            <input
-              on:change={e => onToogle(script.name, e)}
-              checked={script.granted}
-              type="checkbox" />
-            <span
-              style={script.granted ? `background-color: ${sliderColor}; box-shadow: 0 0 1px ${sliderColor};` : ''}
-              class="slider round" />
-          </label>
+          <div class="miconsent__scriptlist_info { openIndex === i ? 'open ' : '' }">
+            {#each (script.info || []) as info}
+              <div class="miconsent__scriptlist_infoline">
+                <span>{ info.label }</span>
+                <span>{@html info.description }</span>
+              </div>
+            {/each}
+          </div>
         </div>
       {/each}
     </div>
@@ -76,13 +97,15 @@
       <button>{translate('BACK')}</button>
     </div>
     <div class="miconsent__option">
-      <button on:click={() => acceptAll()}>{translate('ACCEPT_ALL')}</button>
+      <button on:click={() => dispatch('done', scripts)}>
+        {translate('SAVE')}
+      </button>
     </div>
     <div class="miconsent__option accept_all">
       <button
         style={`background-color: ${highlightColor}`}
-        on:click={() => dispatch('done', scripts)}>
-        {translate('DONE')}
+        on:click={() => acceptAll()}>
+        {translate('ACCEPT_ALL')}
       </button>
     </div>
   </div>

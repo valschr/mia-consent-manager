@@ -40,11 +40,6 @@
     </div>
   </div>
   <div class="miconsent__options">
-    <div class="miconsent__option decline_all">
-      <button on:click={() => dispatch('close')}>
-        {translate('NO_THANKS')}
-      </button>
-    </div>
     <div class="miconsent__option">
       <button on:click={() => dispatch('changeView', 'CHOOSE')}>
         {translate('I_WANT_TO_CHOOSE')}
@@ -57,5 +52,10 @@
         {translate('ACCEPT_ALL')}
       </button>
     </div>
+  </div>
+  <div class="miconsent__decline decline_all">
+    <button on:click={() => dispatch('close')}>
+      {translate('NO_THANKS')}
+    </button>
   </div>
 </main>
