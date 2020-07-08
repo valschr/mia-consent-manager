@@ -1,7 +1,9 @@
+
 $hightlightcolor: #ffc823;
 $lightFont: #4f5c65;
 $lightBorder: #eee;
 $mobile: 768px;
+/*! purgecss start ignore */
 
 body {
   background-color: #eee;
@@ -123,6 +125,10 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    &.decline_all button { 
+      margin-bottom: 15px;
+      padding: 0;
+    }
     button {
       appearance: none;
       background-color: transparent;
@@ -182,6 +188,7 @@ body {
       padding-top: 5px;
       span:nth-child(1) {
         width: 30%;
+        min-width: 30%;
       }
       &:last-of-type {
         border-bottom: none;
@@ -305,3 +312,4 @@ body {
     border-radius: 50%;
   }
 }
+/*! purgecss end ignore */

@@ -1,7 +1,7 @@
 const translation = {
   NO_THANKS: {
     en: 'Decline All',
-    de: 'All ablehnen',
+    de: 'Alle ablehnen',
   },
   I_WANT_TO_CHOOSE: {
     en: 'I want to choose',
