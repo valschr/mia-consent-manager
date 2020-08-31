@@ -34,9 +34,9 @@ export const getInitialState = (scripts) => {
       i.consent_answered = true
       if (!!previouslyGranted.granted) {
         if (typeof dataLayer !== 'undefined') {
-          if (!i.gtm) {
-            throw new Error('GRANT EVENT NOT DEFINED')
-          }
+          dataLayer.push({
+            event: `CM_GRANTED_${i.gtm ? i.gtm.grantEvent : i.name}`,
+          })
         } else {
           console.log('CANT GRANT, dataLayer not defined:', i.gtm.grantEvent)
         }
