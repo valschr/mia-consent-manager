@@ -32,19 +32,18 @@ export const getInitialState = (scripts) => {
       i.granted = previouslyGranted.granted
       setBinaryConsentCookie(i.gtm.grantEvent, !!previouslyGranted.granted)
       i.consent_answered = true
+      if (!!previouslyGranted.granted) {
+        if (typeof dataLayer !== 'undefined') {
+          if (!i.gtm) {
+            throw new Error('GRANT EVENT NOT DEFINED')
+          }
+        } else {
+          console.log('CANT GRANT, dataLayer not defined:', i.gtm.grantEvent)
+        }
+      }
     }
   })
-  currentState
-    .filter((r) => r.granted)
-    .forEach((i) => {
-      if (typeof dataLayer !== 'undefined') {
-        dataLayer.push({
-          event: `CM_GRANTED_${i.gtm ? i.gtm.grantEvent : i.name}`,
-        })
-      } else {
-        console.log('CANT GRANT, dataLayer not defined:', i.name)
-      }
-    })
+
   return {
     scripts,
     showPromp:
