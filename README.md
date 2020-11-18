@@ -36,6 +36,7 @@ MiaConsentManager({
   privacyLink: '/privacy',
   imprintLink: '/imprint',
   language: 'en', // de, en are available
+  scriptId: 'gascript', // if set the script tag with this ID gets enabled. This can be used if GTM is not used to toggle scripts
   scripts: [
     {
       name: 'Google Analytics',
@@ -74,6 +75,50 @@ These are then meant to be used within the GTM to trigger the scripts.
 
 According to this specification:  
 http://browsersupport.moodley-interactive.com/
+
+### Usage with GTM
+
+This consent manager sets a cookie for every single script that was granted. Within GTM these cookies can be used to add scripts to the dom.
+
+### Usage without gtm
+
+If no GTM is used this consent manager can be used to enable tools that were added via a script tag directly.  
+But you have to modify the script tag beforehand  
+
+This is how an example GA tag would look like 
+```html
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+```
+
+But it has to be modified like so:
+```html
+<!-- Google Analytics -->
+<script type="application/json" id="mygatag" >
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+```
+note: The type application/json was set, this "disables" the script tag initially.   
+We also added an ID to the tag, this ID must be set in the config (scriptId). 
+
+After the user granted the script the type will be changed to text/javascript and therefore enable the script.
 
 ### CSS Styling
 

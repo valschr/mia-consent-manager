@@ -26,154 +26,24 @@ function init(props = { scripts: [] }) {
           description:
             'Allows us to analyze the statistics of visits to our site',
           domain: 'google.com',
+          scriptId: 'gascript',
           gtm: {
             grantEvent: 'GOOGLE_ANALYTICS',
           },
-          info: [{
-            label: 'Name',
-            description: 'Google Analytics'
-          }, {
-            label: 'Provider',
-            description: 'Google LLC'
-          },{
-            label: 'Domain',
-            description: '<a href="https://google.at">google.at</a>'
-          }]
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
-        },
-        {
-          name: 'Linked-In',
-          description:
-            'Allows us to analyze the statistics of visits to our site',
-          domain: 'linkedin.com',
-          gtm: {
-            grantEvent: 'LINKED_IN',
-          },
+          info: [
+            {
+              label: 'Name',
+              description: 'Google Analytics',
+            },
+            {
+              label: 'Provider',
+              description: 'Google LLC',
+            },
+            {
+              label: 'Domain',
+              description: '<a href="https://google.at">google.at</a>',
+            },
+          ],
         },
         {
           name: 'Linked-In',
