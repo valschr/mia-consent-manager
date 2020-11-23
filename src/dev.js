@@ -9,7 +9,7 @@ function init(props = { scripts: [] }) {
       homeText: {
         title: 'Lorem ipsum!',
         description:
-          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
+          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <a href="https://expample.com">link in html format</a>',
         subtitle: 'dolor sit amet',
       },
       chooseText: {
@@ -19,6 +19,10 @@ function init(props = { scripts: [] }) {
       },
       privacyLink: '/privacy',
       imprintLink: '/imprint',
+      infoButtons: [{
+        href: 'https://google.at',
+        label: 'GOOGLE'
+      }],
       language: 'en', // de, en are available
       scripts: [
         {

@@ -7,6 +7,7 @@
   export let title
   export let subtitle
   export let description
+  export let infoButtons
   export let highlightColor
   export let imprintLink = ''
   export let privacyLink = ''
@@ -29,7 +30,7 @@
     {#if !!subtitle}
       <span class="miconsent__subline">{subtitle}</span>
     {/if}
-    <p class="miconsent__info">{description}</p>
+    <p class="miconsent__info">{@html description}</p>
     <div class="miconsent__moreinfo">
       {#if !!imprintLink}
         <a href={imprintLink}>{translate('IMPRINT')}</a>
@@ -37,6 +38,9 @@
       {#if !!privacyLink}
         <a href={privacyLink}>{translate('PRIVACY_POLICY')}</a>
       {/if}
+      {#each infoButtons as button}
+        <a target="_blank" href={button.href}>{button.label}</a>
+      {/each}
     </div>
   </div>
   <div class="miconsent__options">

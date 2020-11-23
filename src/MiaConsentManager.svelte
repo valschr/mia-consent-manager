@@ -6,6 +6,7 @@
   export let language
   export let homeText
   export let chooseText
+  export let infoButtons
   export let blocking
   export let highlightColor = '#fc6e20'
   export let sliderColor = '#fe886c'
@@ -63,6 +64,7 @@
             {sliderColor}
             {imprintLink}
             {privacyLink}
+            {infoButtons}
             {language}
             {scripts}
             on:done={handleDone}

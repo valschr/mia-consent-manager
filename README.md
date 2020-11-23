@@ -35,13 +35,17 @@ MiaConsentManager({
   sliderColor: '#fe886c',
   privacyLink: '/privacy',
   imprintLink: '/imprint',
+  infoButtons: [{ // adds additional buttons next to the imprint and privacy links
+    href: 'https://google.at',
+    label: 'GOOGLE'
+  }],
   language: 'en', // de, en are available
-  scriptId: 'gascript', // if set the script tag with this ID gets enabled. This can be used if GTM is not used to toggle scripts
   scripts: [
     {
       name: 'Google Analytics',
       description: 'Allows us to analyze the statistics of visits to our site',
       domain: 'google.com',
+      scriptId: 'gascript', // if set the script tag with this ID gets enabled. This can be used if GTM is not used to toggle scripts
       gtm: {
         grantEvent: 'GOOGLE_ANALYTICS',
       },

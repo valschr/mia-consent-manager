@@ -70,6 +70,13 @@ $mobile: 768px;
     margin-bottom: 26px;
     line-height: 1.5;
     color: $lightFont;
+    a {
+      color: inherit;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
   &__options {
     display: flex;
