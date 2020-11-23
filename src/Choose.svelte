@@ -43,7 +43,7 @@
 <main>
   <div class="miconsent__content">
     <span class="miconsent__headline">{title}</span>
-    <span class="miconsent__info">{description}</span>
+    <span class="miconsent__info">{@html description}</span>
     <div class="miconsent__accept_all">
       {translate('CHECK_ALL')}
       <label on:change={e => onToogle('ALL', e)} class="switch large">
