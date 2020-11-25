@@ -54,8 +54,11 @@ MiaConsentManager({
 })
 ```
 
-The "grantEvent" will be prefixed by "CM_GRANTED\*" resulting in events like "CM_GRANTED_GOOGLE_ANALYTICS", "CM_GRANTED_LINKED_IN".
-These are then meant to be used within the GTM to trigger the scripts.
+### Configuration for Google Tag Manager 
+
+The exact configuration of Google Tag Manager is depending on you actual setup. In general there ar two options **grantEvent** and **statusCookie**
+
+The **grantEvent** fires on each page view for each given consent and will be prefixed by "CM_GRANTED\*" resulting in events like "CM_GRANTED_GOOGLE_ANALYTICS", "CM_GRANTED_LINKED_IN". These are then meant to be used within the GTM to trigger the scripts. 
 
 ### Browser Support 
 
