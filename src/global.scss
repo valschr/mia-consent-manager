@@ -1,19 +1,19 @@
+
 $hightlightcolor: #ffc823;
 $lightFont: #4f5c65;
 $lightBorder: #eee;
-
-body {
-  background-color: #eee;
-}
+$mobile: 768px;
+/*! purgecss start ignore */
 
 .miconsent {
   &.blocking {
     width: 100vw;
     height: 100vh;
     background-color: transparentize($color: #f8f8ff, $amount: 0.5);
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
+    z-index: 9999;
   }
   &.blocking &__container {
     top: 50%;
@@ -28,9 +28,15 @@ body {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 24px,
       rgba(0, 0, 0, 0.05) 0px 2px 6px;
     background-color: white;
-    border-radius: 18px;
-    width: 400px;
-    max-width: 80vw;
+    max-height: 80vh;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 0px;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+    // border-radius: 18px;
+    width: 540px;
+    max-width: 90vw;
     z-index: 9999;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
@@ -44,36 +50,61 @@ body {
   // consent manager
   &__content {
     padding: 15px;
+    @media screen and (min-width: $mobile) {
+      padding: 35px;
+    }
+    padding-bottom: 26px;
   }
   &__headline {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 29px;
+    margin-bottom: 17px;
+    font-weight: 300;
   }
   &__subline {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 19px;
+    margin-bottom: 20px;
+    font-weight: 300;
   }
   &__info {
     font-size: 12px;
-    margin-bottom: 10px;
+    margin-bottom: 26px;
     line-height: 1.5;
     color: $lightFont;
+    a {
+      color: inherit;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
   &__options {
     display: flex;
+    padding: 15px;
+    @media screen and (min-width: $mobile) {
+      padding-left: 35px;
+      padding-right: 35px;
+      padding-bottom: 15px;
+    }
+    padding-top: 0px;
+    @media (max-width: 540px) {
+      flex-direction: column;
+      & > div {
+        margin-bottom: 10px;
+      }
+    }
   }
   &__option {
     display: flex;
-    width: 100%;
     text-align: center;
-    border-top: 0.5px solid $lightBorder;
-    border-right: 0.5px solid $lightBorder;
-    &:last-child {
-      border-right: none;
+    margin-right: 10px;
+    width: 100%;
+    &:last-of-type {
+      margin-right: 0px;
     }
     button {
+      border: 1px solid rgba(0, 0, 0, 0.2);
       background: transparent;
-      border: none;
       text-shadow: none;
       outline: none;
       cursor: pointer;
@@ -83,9 +114,36 @@ body {
       font-size: 14px;
       color: $lightFont;
       margin: 0;
+      white-space: nowrap;
     }
-    &.accept_all button {
-      color: $hightlightcolor;
+    &.accept_all {
+      border-color: transparent;
+      button {
+        border: none;
+        color: white;
+      }
+    }
+  }
+  &__decline {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &.decline_all button { 
+      margin-bottom: 15px;
+      padding: 0;
+    }
+    button {
+      appearance: none;
+      background-color: transparent;
+      border: none;
+      font-size: 12px;
+      color: #4f5c65;
+      line-height: 14px;
+      margin-right: 15px;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
   }
   &__scriptlist {
@@ -94,8 +152,9 @@ body {
       border: 0.5px solid $lightBorder;
       border-bottom: none;
       &:first-of-type {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        border-top: none;
+        // border-top-left-radius: 5px;
+        // border-top-right-radius: 5px;
       }
       &:last-of-type {
         border-bottom-left-radius: 5px;
@@ -104,9 +163,50 @@ body {
       }
     }
   }
-  &__scriptlist_item {
+  &__scriptlist_general {
     display: flex;
     align-items: center;
+    & > div {
+      padding-right: 10px;
+      width: 100%;
+    }
+  }
+  &__scriptlist_info {
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    // display: flex;
+    margin-top: 5px;
+    & > div > span {
+      font-size: 11px;
+    }
+    &.open {
+      height: auto;
+    }
+    & > div {
+      display: flex;
+      width:100%;
+      border-bottom: 0.5px solid $lightBorder;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      span:nth-child(1) {
+        width: 30%;
+        min-width: 30%;
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+      &:first-of-type {
+        border-top: 0.5px solid $lightBorder;
+      }
+    }
+  }
+  &__scriptlist_item {
+    // display: flex;
+    & > div {
+      width:100%;
+    }
+    
     &_icon {
       width: 20px;
       height: 20px;
@@ -119,18 +219,39 @@ body {
     }
     small {
       font-size: 12px;
+      margin-top: 3px;
+      display: block;
       color: $lightFont;
       line-height: 14px;
       display: block;
-    }
-    & > div {
-      padding-right: 10px;
+      &.link {
+        font-size: 11px;
+        text-decoration: underline;
+        cursor: pointer;
+        user-select: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
   &__accept_all {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
+    font-size: 14px;
+    padding: 5px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border: 1px solid $lightBorder;
+  }
+
+  &__moreinfo a {
+    font-size: 12px;
+    color: #4f5c65;
+    line-height: 14px;
+    margin-right: 15px;
+    text-decoration: underline;
   }
   .switch {
     position: relative;
@@ -194,3 +315,4 @@ body {
     border-radius: 50%;
   }
 }
+/*! purgecss end ignore */

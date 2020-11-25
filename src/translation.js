@@ -1,7 +1,7 @@
 const translation = {
   NO_THANKS: {
-    en: 'No thanks',
-    de: 'Nein danke',
+    en: 'Decline All',
+    de: 'Alle ablehnen',
   },
   I_WANT_TO_CHOOSE: {
     en: 'I want to choose',
@@ -23,10 +23,30 @@ const translation = {
     en: 'Done',
     de: 'Fertig',
   },
+  SAVE: {
+    en: 'Save',
+    de: 'Speichern',
+  },
+  IMPRINT: {
+    en: 'Imprint',
+    de: 'Impressum',
+  },
+  PRIVACY_POLICY: {
+    en: 'Privacy Policy',
+    de: 'Datenschutzerklärung',
+  },
+  MORE_INFO: {
+    en: 'show more',
+    de: 'mehr Informationen',
+  },
+  LESS_INFO: {
+    en: 'show less',
+    de: 'weniger Informationen',
+  },
 }
 
-export default key => {
-  const lang = window.navigator.userLanguage || window.navigator.language
+export default (key, language) => {
+  const lang = language || window.navigator.userLanguage || window.navigator.language
   if (!translation[key]) return ''
   return translation[key][lang] || translation[key]['en']
 }

@@ -1,10 +1,11 @@
 // save the response of the user as a cookie
-export const setConsentCookie = scripts => {
+export const setConsentCookie = (scripts) => {
   const expires = new Date()
   expires.setTime(expires.getTime() + 365 * 24 * 60 * 60 * 1000)
+  const scriptsToStore = scripts.map(s => ({ granted: !!s.granted, name: s.name }))
   document.cookie =
     'mia_consent_manager=' +
-    JSON.stringify(scripts) +
+    btoa(JSON.stringify(scriptsToStore)) +
     ';' +
     expires.toUTCString() +
     ';path=/'
@@ -21,8 +22,21 @@ export const getConsentCookie = () => {
       c = c.substring(1)
     }
     if (c.indexOf(name) == 0) {
-      return JSON.parse(c.substring(name.length, c.length))
+      const cookieContent = c.substring(name.length, c.length)
+      let jsonValue = undefined
+      try {
+        jsonValue = JSON.parse(atob(cookieContent))
+      } catch (e) {}
+      if (jsonValue) return jsonValue
+      // fallback for cookies before base64 handler
+      return JSON.parse(cookieContent)
     }
   }
   return []
+}
+
+export const setBinaryConsentCookie = (name, value) => {
+  const expires = new Date()
+  expires.setTime(expires.getTime() + 365 * 24 * 60 * 60 * 1000)
+  document.cookie = `CM_${name}=${!!value};${expires.toUTCString()};path=/`
 }
