@@ -38,7 +38,7 @@
       {#if !!privacyLink}
         <a href={privacyLink}>{translate('PRIVACY_POLICY')}</a>
       {/if}
-      {#each infoButtons as button}
+      {#each (typeof infoButtons !== 'undefined' ? infoButtons : []) as button}
         <a target="_blank" href={button.href}>{button.label}</a>
       {/each}
     </div>
