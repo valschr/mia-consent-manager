@@ -72,24 +72,24 @@ MiaConsentManager({
 })
 ```
 
-### Configuration for Google Tag Manager 
 
-The exact configuration of Google Tag Manager is depending on you actual setup. In general there ar two options **grantEvent** and **statusCookie**
-
-The **grantEvent** fires on each page view for each given consent and will be prefixed by "CM_GRANTED\*" resulting in events like "CM_GRANTED_GOOGLE_ANALYTICS", "CM_GRANTED_LINKED_IN". These are then meant to be used within the GTM to trigger the scripts. 
 
 ### Browser Support 
 
 According to this specification:  
 http://browsersupport.moodley-interactive.com/
 
-### Usage with GTM
+### Usage with Google Tag Manager
 
-This consent manager sets a cookie for every single script that was granted. Within GTM these cookies can be used to add scripts to the dom.
+The consent manager provides **Grant Events** and **Status Cookies** for the usage in your GTM setup.
 
-### Usage without gtm
+**Grant Events** are standard Data Layer events prefixed by `CM_GRANTED\*` resulting in events like `CM_GRANTED_GOOGLE_ANALYTICS`, `CM_GRANTED_LINKED_IN` according to the settings file. Each page view fires a grant event for each given consent, so you can use them as triggers.
 
-If no GTM is used this consent manager can be used to enable tools that were added via a script tag directly.  
+**Status Cookies** are standard first-party-cookies prefixed by `CM_\*` resulting in cookies like `CM_GOOGLE_ANALYTICS`, `CM_LINKED_IN` according to the settings file. Each consent sets status cookie with the value `true` for consent given or `false` for consent denied. You can use them for more complex solutions or blocking triggers.
+
+### Usage without Google Tag Manager
+
+If no GTM is used the consent manager can be used to enable tools that were added via a script tag directly.  
 But you have to modify the script tag beforehand  
 
 This is how an example GA tag would look like 
