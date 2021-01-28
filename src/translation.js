@@ -28,7 +28,7 @@ const translation = {
     de: 'Speichern',
   },
   IMPRINT: {
-    en: 'Imprint',
+    en: 'Legal Notice',
     de: 'Impressum',
   },
   PRIVACY_POLICY: {
