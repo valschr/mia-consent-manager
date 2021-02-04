@@ -3,12 +3,8 @@ export const setConsentCookie = (scripts) => {
   const expires = new Date()
   expires.setTime(expires.getTime() + 365 * 24 * 60 * 60 * 1000)
   const scriptsToStore = scripts.map(s => ({ granted: !!s.granted, name: s.name }))
-  document.cookie =
-    'mia_consent_manager=' +
-    btoa(JSON.stringify(scriptsToStore)) +
-    ';' +
-    expires.toUTCString() +
-    ';path=/'
+  const cookieString = 'mia_consent_manager=' + btoa(JSON.stringify(scriptsToStore)) + ';expires=' + expires.toUTCString() + ';path=/'
+  document.cookie = cookieString
 }
 
 // get the existing settings
@@ -38,5 +34,5 @@ export const getConsentCookie = () => {
 export const setBinaryConsentCookie = (name, value) => {
   const expires = new Date()
   expires.setTime(expires.getTime() + 365 * 24 * 60 * 60 * 1000)
-  document.cookie = `CM_${name}=${!!value};${expires.toUTCString()};path=/`
+  document.cookie = `CM_${name}=${!!value};expires=${expires.toUTCString()};path=/`
 }
